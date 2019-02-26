@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "puppeteer": "^1.12.2"
+  },
+  "name": "crawler-naver",
+  "version": "1.0.0",
+  "description": "crawler-naver prototype",
+  "main": "index.js",
+  "repository": "https://github.com/rabelais88/crawler-naver",
+  "author": "sungryeol park",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon index.js",
+    "serve": "node index.js"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "nodemon": "^1.18.10"
+  }
+}
