@@ -6,7 +6,7 @@ class Crawler {
     this._headless = _headless;
     this._maxtab = maxtab;
     this._maxpost = maxpost;
-    if (this.maxpage < 11) throw Error('maxpage must be larger than 10')
+    if (this.maxpost < 11) throw Error('max post must be larger than 10(due to nature of naver pages)')
     this._tabs = [];
   }
   async setRequest(tab) {
