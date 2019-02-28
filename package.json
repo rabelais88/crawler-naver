@@ -13,11 +13,14 @@
   "private": false,
   "scripts": {
     "dev": "nodemon index.js",
-    "serve": "node index.js"
+    "serve": "node index.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
+    "jest": "^24.1.0",
     "nodemon": "^1.18.10"
   }
 }

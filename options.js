@@ -4,4 +4,5 @@ module.exports = {
   maxTab: 5,
   maxPost: 50,
   headless: false,
+  rejected: '^.+\.(gif|jpg|jpeg|mp4|css|woff)$'
 };

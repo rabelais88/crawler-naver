@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const { rejected } = require('../options');
 
 class Crawler {
   constructor(_headless = false, maxtab = 5, maxpost = 50) {
@@ -8,9 +9,18 @@ class Crawler {
     if (this.maxpage < 11) throw Error('maxpage must be larger than 10')
     this._tabs = [];
   }
+  async setRequest(tab) {
+    await tab.setRequestInterception(true) // this disables page caching
+    tab.on('request', req => {
+      if (new RegExp(rejected).test(req.url())) req.abort();
+      else req.continue();
+    })
+    return true;
+  }
   async getWord(_keyword, page) {
     console.log('get word!', _keyword);
     const tab = await this._browser.newPage();
+    await this.setRequest(tab);
     await tab.goto(`https://search.naver.com/search.naver?query=${_keyword}&where=post&=start=${page}`);
     const lnkBlogArticle = '.sh_blog_top > dl > dt > a';
     const res = await tab.evaluate(query => {
